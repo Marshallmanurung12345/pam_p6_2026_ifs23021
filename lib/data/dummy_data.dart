@@ -1,83 +1,112 @@
 // lib/data/dummy_data.dart
 
-import 'models/plant_model.dart';
+import 'models/wisata_model.dart';
 
-/// Kelas untuk menyimpan data statis (dummy)
-/// Menggunakan static method agar tidak perlu instansiasi
+/// Kelas untuk menyimpan data statis (dummy) wisata Samosir
 class DummyData {
   DummyData._();
 
-  static List<PlantModel> getPlantsData() {
+  static List<WisataModel> getWisataData() {
     return const [
-      PlantModel(
-        nama: 'Bawang Merah',
-        gambar: 'assets/images/img_bawang_merah.png',
-        deskripsi: 'Bawang merah adalah umbi yang banyak digunakan sebagai bumbu dapur dan memiliki aroma kuat.',
-        manfaat: 'Membantu meningkatkan daya tahan tubuh, mengurangi peradangan, dan mendukung kesehatan jantung.',
-        efekSamping: 'Dapat menyebabkan iritasi mata dan gangguan pencernaan jika dikonsumsi berlebihan.',
+      WisataModel(
+        nama: 'Batu Hoda',
+        gambar: 'assets/images/batu hoda.jpg',
+        deskripsi:
+            'Batu Hoda adalah pantai indah di Pulau Samosir yang memiliki pasir putih bersih dan air danau yang jernih. Pantai ini menjadi salah satu destinasi favorit wisatawan karena keindahan alamnya yang memukau dengan latar belakang perbukitan hijau Samosir.',
+        lokasi: 'Kecamatan Simanindo, Samosir, Sumatera Utara',
+        kategori: 'Pantai & Danau',
+        jamBuka: '07.00 – 18.00 WIB',
+        tiketMasuk: 'Rp 5.000 per orang',
       ),
-      PlantModel(
-        nama: 'Bawang Putih',
-        gambar: 'assets/images/img_bawang_putih.png',
-        deskripsi: 'Bawang putih merupakan tanaman umbi dengan aroma khas yang sering digunakan sebagai bumbu dasar.',
-        manfaat: 'Mendukung kesehatan jantung, membantu meningkatkan imunitas, dan memiliki efek antibakteri alami.',
-        efekSamping: 'Dapat menyebabkan bau mulut, mulas, dan iritasi lambung ketika konsumsi berlebih.',
+      WisataModel(
+        nama: 'Bukit Holbung',
+        gambar: 'assets/images/bukit holbung.jpg',
+        deskripsi:
+            'Bukit Holbung menawarkan pemandangan spektakuler Danau Toba dari ketinggian. Hamparan padang rumput hijau dengan pemandangan danau yang luas menjadikan tempat ini surga tersembunyi di Samosir. Cocok untuk hiking dan menikmati sunrise maupun sunset yang menakjubkan.',
+        lokasi: 'Desa Huta Tinggi, Pangururan, Samosir',
+        kategori: 'Bukit & Alam',
+        jamBuka: '06.00 – 18.00 WIB',
+        tiketMasuk: 'Rp 10.000 per orang',
       ),
-      PlantModel(
-        nama: 'Brokoli',
-        gambar: 'assets/images/img_brokoli.png',
-        deskripsi: 'Brokoli adalah sayuran hijau yang kaya vitamin, mineral, dan serat.',
-        manfaat: 'Membantu detoksifikasi, menjaga kesehatan mata, dan mendukung sistem kekebalan tubuh.',
-        efekSamping: 'Dapat menyebabkan kembung dan gas pada beberapa orang.',
+      WisataModel(
+        nama: 'Desa Tomok',
+        gambar: 'assets/images/desa tomok.jpg',
+        deskripsi:
+            'Desa Tomok adalah desa wisata bersejarah yang menyimpan kekayaan budaya Batak Toba. Di sini terdapat makam Raja Sidabutar yang berusia ratusan tahun, museum, dan pertunjukan Sigale-gale — boneka kayu mistis yang dapat menari. Desa ini juga terkenal dengan pasar souvenir kerajinan Batak.',
+        lokasi: 'Kecamatan Simanindo, Samosir',
+        kategori: 'Budaya & Sejarah',
+        jamBuka: '08.00 – 17.00 WIB',
+        tiketMasuk: 'Rp 10.000 per orang',
       ),
-      PlantModel(
-        nama: 'Cabai',
-        gambar: 'assets/images/img_cabai.png',
-        deskripsi: 'Cabai adalah buah pedas yang sering digunakan untuk menambah rasa pada makanan.',
-        manfaat: 'Meningkatkan metabolisme, membantu peredaran darah, dan kaya vitamin C.',
-        efekSamping: 'Dapat menyebabkan iritasi lambung, heartburn, dan diare jika terlalu banyak.',
+      WisataModel(
+        nama: 'Air Terjun Efrata',
+        gambar: 'assets/images/efrata.jpg',
+        deskripsi:
+            'Air Terjun Efrata adalah air terjun cantik yang tersembunyi di kawasan perbukitan Samosir. Aliran air yang jernih dan segar mengalir di antara bebatuan dan pepohonan tropis yang rindang. Perjalanan menuju air terjun ini pun menjadi petualangan tersendiri melalui jalur alam yang asri.',
+        lokasi: 'Kecamatan Pangururan, Samosir',
+        kategori: 'Air Terjun',
+        jamBuka: '08.00 – 17.00 WIB',
+        tiketMasuk: 'Rp 10.000 per orang',
       ),
-      PlantModel(
-        nama: 'Kentang',
-        gambar: 'assets/images/img_kentang.png',
-        deskripsi: 'Kentang adalah umbi yang menjadi sumber karbohidrat dan energi.',
-        manfaat: 'Memberikan energi, mendukung pencernaan, dan kaya vitamin B serta kalium.',
-        efekSamping: 'Jika digoreng dapat meningkatkan kalori dan risiko kenaikan berat badan.',
+      WisataModel(
+        nama: 'Huta Bolon Simanindo',
+        gambar: 'assets/images/huta bolon.jpg',
+        deskripsi:
+            'Huta Bolon Simanindo adalah museum terbuka yang menampilkan rumah adat Batak Toba berusia ratusan tahun. Kompleks ini merupakan bekas istana Raja Sidauruk yang kini difungsikan sebagai museum budaya. Pengunjung dapat menyaksikan pertunjukan tari Tor-Tor dan musik gondang Batak yang meriah.',
+        lokasi: 'Desa Simanindo, Kecamatan Simanindo, Samosir',
+        kategori: 'Budaya & Sejarah',
+        jamBuka: '09.00 – 17.00 WIB',
+        tiketMasuk: 'Rp 20.000 per orang',
       ),
-      PlantModel(
-        nama: 'Kol',
-        gambar: 'assets/images/img_kol.png',
-        deskripsi: 'Kol adalah sayuran daun yang banyak digunakan dalam masakan Asia.',
-        manfaat: 'Membantu pencernaan, kaya vitamin C dan K, serta menjaga kesehatan kulit.',
-        efekSamping: 'Dapat menyebabkan gas dan perut kembung bila dikonsumsi berlebihan.',
+      WisataModel(
+        nama: 'Kursi Batu Batak',
+        gambar: 'assets/images/kursi batu.jpg',
+        deskripsi:
+            'Kursi Batu adalah situs sejarah peninggalan adat Batak Toba berupa kursi batu kuno yang digunakan dalam upacara adat dan musyawarah raja-raja Batak zaman dahulu. Situs ini menjadi bukti nyata tingginya peradaban masyarakat Batak dan menjadi daya tarik wisata budaya yang unik.',
+        lokasi: 'Desa Ambarita, Kecamatan Simanindo, Samosir',
+        kategori: 'Budaya & Sejarah',
+        jamBuka: '08.00 – 17.00 WIB',
+        tiketMasuk: 'Rp 10.000 per orang',
       ),
-      PlantModel(
-        nama: 'Terong',
-        gambar: 'assets/images/img_terong.png',
-        deskripsi: 'Terong adalah sayuran berwarna ungu atau hijau dengan tekstur lembut.',
-        manfaat: 'Membantu mengontrol kadar gula darah, menjaga kesehatan jantung, dan kaya antioksidan.',
-        efekSamping: 'Pada beberapa orang dapat menyebabkan alergi ringan atau gangguan pencernaan.',
+      WisataModel(
+        nama: 'Pantai Parbaba',
+        gambar: 'assets/images/parbaba.jpg',
+        deskripsi:
+            'Pantai Parbaba dikenal sebagai pantai paling bersih dan indah di Pulau Samosir. Pasir putihnya yang lembut dan air Danau Toba yang biru jernih menjadikannya tempat sempurna untuk bersantai, berenang, dan bermain air. Tersedia berbagai fasilitas wisata air seperti banana boat dan perahu.',
+        lokasi: 'Desa Parbaba, Kecamatan Pangururan, Samosir',
+        kategori: 'Pantai & Danau',
+        jamBuka: '07.00 – 18.00 WIB',
+        tiketMasuk: 'Rp 10.000 per orang',
       ),
-      PlantModel(
-        nama: 'Mentimun',
-        gambar: 'assets/images/img_mentimun.png',
-        deskripsi: 'Mentimun adalah buah yang kaya air dan sering digunakan sebagai lalapan atau bahan salad.',
-        manfaat: 'Membantu hidrasi, menjaga kesehatan kulit, dan mendukung pencernaan.',
-        efekSamping: 'Bila terlalu banyak dapat menyebabkan sering buang air kecil atau kembung.',
+      WisataModel(
+        nama: 'Pulau Malau',
+        gambar: 'assets/images/pulau malau.jpg',
+        deskripsi:
+            'Pulau Malau adalah pulau kecil eksotis yang berada di dalam Danau Toba, menjadikannya pulau di dalam pulau yang langka di dunia. Keindahan alamnya yang masih alami dengan air danau yang tenang dan bening menawarkan pengalaman wisata bahari yang tak terlupakan.',
+        lokasi: 'Perairan Danau Toba, Samosir',
+        kategori: 'Pulau & Danau',
+        jamBuka: '07.00 – 17.00 WIB',
+        tiketMasuk: 'Rp 15.000 per orang',
       ),
-      PlantModel(
-        nama: 'Tomat',
-        gambar: 'assets/images/img_tomat.png',
-        deskripsi: 'Tomat adalah buah yang banyak digunakan dalam masakan dan kaya antioksidan.',
-        manfaat: 'Mendukung kesehatan mata, menjaga kesehatan jantung, dan baik untuk kulit.',
-        efekSamping: 'Dapat menyebabkan asam lambung meningkat pada beberapa orang.',
+      WisataModel(
+        nama: 'Air Terjun Sampuran',
+        gambar: 'assets/images/sampuran.jpg',
+        deskripsi:
+            'Air Terjun Sampuran atau Sampuran Efrata adalah salah satu air terjun tertinggi dan terindah di Samosir. Debit airnya yang deras menciptakan kabut air yang menyejukkan di sekitarnya. Dikelilingi hutan tropis yang lebat, air terjun ini menjadi surga bagi para pecinta alam dan fotografi.',
+        lokasi: 'Kecamatan Sianjur Mula-Mula, Samosir',
+        kategori: 'Air Terjun',
+        jamBuka: '08.00 – 17.00 WIB',
+        tiketMasuk: 'Rp 5.000 per orang',
       ),
-      PlantModel(
-        nama: 'Wortel',
-        gambar: 'assets/images/img_wortel.png',
-        deskripsi: 'Wortel adalah sayuran berwarna oranye yang kaya beta-karoten.',
-        manfaat: 'Membantu menjaga kesehatan mata, meningkatkan imunitas, dan baik untuk kulit.',
-        efekSamping: 'Konsumsi berlebihan dapat membuat kulit agak kekuningan (karotenemia).',
+      WisataModel(
+        nama: 'Danau Sidihoni',
+        gambar: 'assets/images/sidihoni.jpg',
+        deskripsi:
+            'Danau Sidihoni adalah danau vulkanik yang berada di atas Pulau Samosir, menjadikannya fenomena unik yaitu danau di dalam danau (Danau Toba). Dikelilingi padang rumput hijau dan suasana yang sunyi, danau ini menawarkan ketenangan dan keindahan alam yang sulit ditemukan di tempat lain.',
+        lokasi: 'Desa Saitnihuta, Kecamatan Ronggur Nihuta, Samosir',
+        kategori: 'Danau & Alam',
+        jamBuka: '07.00 – 18.00 WIB',
+        tiketMasuk: 'Rp 5.000 per orang',
       ),
     ];
   }

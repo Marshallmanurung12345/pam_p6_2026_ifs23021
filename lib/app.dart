@@ -5,15 +5,14 @@ import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_notifier.dart';
 
-class DelcomPlantsApp extends StatefulWidget {
-  const DelcomPlantsApp({super.key});
+class WisataSamosirApp extends StatefulWidget {
+  const WisataSamosirApp({super.key});
 
   @override
-  State<DelcomPlantsApp> createState() => _DelcomPlantsAppState();
+  State<WisataSamosirApp> createState() => _WisataSamosirAppState();
 }
 
-class _DelcomPlantsAppState extends State<DelcomPlantsApp> {
-  // ThemeNotifier dibuat di level tertinggi agar bisa diakses seluruh app
+class _WisataSamosirAppState extends State<WisataSamosirApp> {
   final ThemeNotifier _themeNotifier = ThemeNotifier(initial: ThemeMode.light);
 
   @override
@@ -24,17 +23,16 @@ class _DelcomPlantsAppState extends State<DelcomPlantsApp> {
 
   @override
   Widget build(BuildContext context) {
-    // ThemeProvider membungkus seluruh app agar notifier bisa diakses di mana saja
     return ThemeProvider(
       notifier: _themeNotifier,
       child: ValueListenableBuilder<ThemeMode>(
         valueListenable: _themeNotifier,
         builder: (context, themeMode, child) {
           return MaterialApp.router(
-            title: 'Delcom Plants',
+            title: 'Wisata Samosir',
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: themeMode,   // Dikontrol oleh ThemeNotifier
+            themeMode: themeMode,
             routerConfig: appRouter,
             debugShowCheckedModeBanner: false,
           );

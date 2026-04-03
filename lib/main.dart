@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 import 'app.dart';
 
 void main() {
-  runApp(const DelcomPlantsApp());
+  runApp(const WisataSamosirApp());
 }

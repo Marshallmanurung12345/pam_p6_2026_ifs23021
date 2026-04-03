@@ -1,28 +1,28 @@
-// lib/features/plants/plants_screen.dart
+// lib/features/wisata/wisata_screen.dart
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../core/constants/route_constants.dart';
 import '../../data/dummy_data.dart';
-import '../../data/models/plant_model.dart';
+import '../../data/models/wisata_model.dart';
 import '../../shared/widgets/top_app_bar_widget.dart';
 
-class PlantsScreen extends StatefulWidget {
-  const PlantsScreen({super.key});
+class WisataScreen extends StatefulWidget {
+  const WisataScreen({super.key});
 
   @override
-  State<PlantsScreen> createState() => _PlantsScreenState();
+  State<WisataScreen> createState() => _WisataScreenState();
 }
 
-class _PlantsScreenState extends State<PlantsScreen> {
-  List<PlantModel> _plants = DummyData.getPlantsData();
+class _WisataScreenState extends State<WisataScreen> {
+  List<WisataModel> _wisataList = DummyData.getWisataData();
   String _searchQuery = '';
 
   void _onSearchQueryChange(String query) {
     setState(() {
       _searchQuery = query;
-      _plants = DummyData.getPlantsData()
-          .where((p) => p.nama.toLowerCase().contains(query.toLowerCase()))
+      _wisataList = DummyData.getWisataData()
+          .where((w) => w.nama.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -31,31 +31,30 @@ class _PlantsScreenState extends State<PlantsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TopAppBarWidget(
-        title: 'Plants',
+        title: 'Wisata',
         withSearch: true,
         searchQuery: _searchQuery,
         onSearchQueryChange: _onSearchQueryChange,
       ),
-      body: _PlantsBody(
-        plants: _plants,
-        onOpen: (plantName) {
-          // Navigasi ke detail dengan path parameter
-          context.go('${RouteConstants.plants}/$plantName');
+      body: _WisataBody(
+        wisataList: _wisataList,
+        onOpen: (namaWisata) {
+          context.go('${RouteConstants.wisata}/$namaWisata');
         },
       ),
     );
   }
 }
 
-class _PlantsBody extends StatelessWidget {
-  const _PlantsBody({required this.plants, required this.onOpen});
+class _WisataBody extends StatelessWidget {
+  const _WisataBody({required this.wisataList, required this.onOpen});
 
-  final List<PlantModel> plants;
+  final List<WisataModel> wisataList;
   final ValueChanged<String> onOpen;
 
   @override
   Widget build(BuildContext context) {
-    if (plants.isEmpty) {
+    if (wisataList.isEmpty) {
       return Center(
         child: Card(
           margin: const EdgeInsets.all(16),
@@ -73,10 +72,10 @@ class _PlantsBody extends StatelessWidget {
 
     return ListView.builder(
       padding: const EdgeInsets.all(16),
-      itemCount: plants.length,
+      itemCount: wisataList.length,
       itemBuilder: (context, index) {
-        return _PlantItemCard(
-          plant: plants[index],
+        return _WisataItemCard(
+          wisata: wisataList[index],
           onOpen: onOpen,
         );
       },
@@ -84,10 +83,10 @@ class _PlantsBody extends StatelessWidget {
   }
 }
 
-class _PlantItemCard extends StatelessWidget {
-  const _PlantItemCard({required this.plant, required this.onOpen});
+class _WisataItemCard extends StatelessWidget {
+  const _WisataItemCard({required this.wisata, required this.onOpen});
 
-  final PlantModel plant;
+  final WisataModel wisata;
   final ValueChanged<String> onOpen;
 
   @override
@@ -101,44 +100,61 @@ class _PlantItemCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: () => onOpen(plant.nama),
+        onTap: () => onOpen(wisata.nama),
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
-              // Gambar tanaman
+              // Gambar wisata
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.asset(
-                  plant.gambar,
-                  width: 70,
-                  height: 70,
+                  wisata.gambar,
+                  width: 80,
+                  height: 80,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) => Container(
-                    width: 70,
-                    height: 70,
+                    width: 80,
+                    height: 80,
                     color: colorScheme.primaryContainer,
-                    child: Icon(Icons.eco, color: colorScheme.primary),
+                    child: Icon(Icons.landscape, color: colorScheme.primary),
                   ),
                 ),
               ),
               const SizedBox(width: 12),
 
-              // Nama dan deskripsi
+              // Nama, kategori, dan deskripsi
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      plant.nama,
+                      wisata.nama,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 4),
+                    // Badge kategori
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: colorScheme.secondaryContainer,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        wisata.kategori,
+                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                          color: colorScheme.onSecondaryContainer,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
                     Text(
-                      plant.deskripsi,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      wisata.deskripsi,
+                      style: Theme.of(context).textTheme.bodySmall,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

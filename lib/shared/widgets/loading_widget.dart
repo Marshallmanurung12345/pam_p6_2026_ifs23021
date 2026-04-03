@@ -75,12 +75,11 @@ class _LoadingWidgetState extends State<LoadingWidget>
                 );
               },
             ),
-            // Logo tengah
-            Image.asset(
-              'assets/images/img_kol.png',
-              width: 76,
-              height: 76,
-              fit: BoxFit.contain,
+            // Ikon tengah
+            Icon(
+              Icons.landscape,
+              size: 48,
+              color: color,
             ),
           ],
         ),

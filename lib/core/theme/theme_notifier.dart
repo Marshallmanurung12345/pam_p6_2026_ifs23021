@@ -3,19 +3,15 @@
 import 'package:flutter/material.dart';
 
 /// ValueNotifier yang menyimpan ThemeMode saat ini
-/// Diakses melalui InheritedWidget (ThemeProvider)
 class ThemeNotifier extends ValueNotifier<ThemeMode> {
   ThemeNotifier({ThemeMode initial = ThemeMode.system}) : super(initial);
 
-  /// Cek apakah mode saat ini adalah dark
   bool get isDark => value == ThemeMode.dark;
 
-  /// Toggle antara light dan dark mode
   void toggle() {
     value = isDark ? ThemeMode.light : ThemeMode.dark;
   }
 
-  /// Set mode secara eksplisit
   void setMode(ThemeMode mode) {
     value = mode;
   }
@@ -29,11 +25,9 @@ class ThemeProvider extends InheritedNotifier<ThemeNotifier> {
     required super.child,
   }) : super(notifier: notifier);
 
-  /// Cara akses ThemeProvider dari widget mana pun:
-  /// `ThemeProvider.of(context).toggle()`
   static ThemeNotifier of(BuildContext context) {
     final provider =
-    context.dependOnInheritedWidgetOfExactType<ThemeProvider>();
+        context.dependOnInheritedWidgetOfExactType<ThemeProvider>();
     assert(provider != null, 'ThemeProvider tidak ditemukan di widget tree!');
     return provider!.notifier!;
   }

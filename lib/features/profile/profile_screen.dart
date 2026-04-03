@@ -9,7 +9,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: TopAppBarWidget(title: 'Profile'),  // AppBar bersifat PreferredSizeWidget
+      appBar: TopAppBarWidget(title: 'Profile'),
       body: _ProfileBody(),
     );
   }
@@ -25,7 +25,7 @@ class _ProfileBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          // Header
+          // Header profil
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
             child: Column(
@@ -51,9 +51,9 @@ class _ProfileBody extends StatelessWidget {
 
                 const SizedBox(height: 16),
 
-                // Nama
+                // Nama — ganti dengan nama kamu
                 Text(
-                  'Abdullah Ubaid',  // Ubah dengan nama kamu
+                  'Nama Mahasiswa',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -61,9 +61,9 @@ class _ProfileBody extends StatelessWidget {
 
                 const SizedBox(height: 4),
 
-                // Username
+                // NIM — ganti dengan NIM kamu
                 Text(
-                  'ifs18005',  // Ubah dengan username kamu
+                  'ifs23021',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: colorScheme.onSurfaceVariant,
                   ),
@@ -91,9 +91,9 @@ class _ProfileBody extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Saya adalah seorang developer yang tertarik pada mobile development, '
-                        'backend API, dan berbagai teknologi pengembangan aplikasi. '
-                        'Senang belajar hal baru dan membangun aplikasi yang berguna.',
+                    'Saya adalah mahasiswa yang tertarik pada pengembangan aplikasi mobile '
+                    'dan teknologi informasi. Aplikasi ini dibuat sebagai tugas praktikum '
+                    'Pemrograman Aplikasi Mobile dengan topik Wisata Samosir.',
                     textAlign: TextAlign.center,
                   ),
                 ],

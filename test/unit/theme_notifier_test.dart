@@ -2,14 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pam_p6_2026_ifs18005/core/theme/theme_notifier.dart';
+import 'package:pam_p6_2026_ifs23021/core/theme/theme_notifier.dart';
 
 void main() {
   group('ThemeNotifier', () {
     late ThemeNotifier notifier;
 
     setUp(() {
-      // Buat instance baru sebelum setiap test
       notifier = ThemeNotifier(initial: ThemeMode.system);
     });
 
@@ -33,7 +32,6 @@ void main() {
     });
 
     test('toggle dari system ke dark', () {
-      // system dianggap bukan dark, sehingga toggle → dark
       notifier.setMode(ThemeMode.system);
       notifier.toggle();
       expect(notifier.value, equals(ThemeMode.dark));

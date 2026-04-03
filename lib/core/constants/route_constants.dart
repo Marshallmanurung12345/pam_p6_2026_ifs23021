@@ -4,7 +4,7 @@ class RouteConstants {
   RouteConstants._();
 
   static const String home = '/';
-  static const String plants = '/plants';
-  static const String plantsDetail = '/plants/:name';
+  static const String wisata = '/wisata';
+  static const String wisataDetail = '/wisata/:nama';
   static const String profile = '/profile';
 }

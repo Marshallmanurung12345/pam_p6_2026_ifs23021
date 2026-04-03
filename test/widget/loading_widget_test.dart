@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pam_p6_2026_ifs18005/shared/widgets/loading_widget.dart';
+import 'package:pam_p6_2026_ifs23021/shared/widgets/loading_widget.dart';
 
 void main() {
   group('LoadingWidget', () {
@@ -13,7 +13,6 @@ void main() {
         ),
       );
 
-      // Verifikasi widget ada di tree
       expect(find.byType(LoadingWidget), findsOneWidget);
     });
 
@@ -27,15 +26,14 @@ void main() {
       expect(find.byType(Stack), findsWidgets);
     });
 
-    testWidgets('menampilkan gambar logo di tengah', (tester) async {
+    testWidgets('menampilkan ikon landscape di tengah', (tester) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(body: LoadingWidget()),
         ),
       );
 
-      // Gambar logo ada
-      expect(find.byType(Image), findsOneWidget);
+      expect(find.byIcon(Icons.landscape), findsOneWidget);
     });
 
     testWidgets('widget berada di posisi tengah layar', (tester) async {

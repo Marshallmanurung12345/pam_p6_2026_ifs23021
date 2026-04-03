@@ -3,9 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pam_p6_2026_ifs18005/core/theme/app_theme.dart';
-import 'package:pam_p6_2026_ifs18005/core/theme/theme_notifier.dart';
-import 'package:pam_p6_2026_ifs18005/shared/widgets/bottom_nav_widget.dart';
+import 'package:pam_p6_2026_ifs23021/core/theme/app_theme.dart';
+import 'package:pam_p6_2026_ifs23021/core/theme/theme_notifier.dart';
+import 'package:pam_p6_2026_ifs23021/shared/widgets/bottom_nav_widget.dart';
 
 Widget buildNavTestApp(String initialRoute) {
   final notifier = ThemeNotifier(initial: ThemeMode.light);
@@ -13,12 +13,18 @@ Widget buildNavTestApp(String initialRoute) {
     initialLocation: initialRoute,
     routes: [
       ShellRoute(
-        builder: (context, state, child) =>
-            Scaffold(body: child, bottomNavigationBar: BottomNavWidget(child: child)),
+        builder: (context, state, child) => Scaffold(
+            body: child,
+            bottomNavigationBar: BottomNavWidget(child: child)),
         routes: [
-          GoRoute(path: '/', builder: (_, __) => const SizedBox(key: Key('home'))),
-          GoRoute(path: '/plants', builder: (_, __) => const SizedBox(key: Key('plants'))),
-          GoRoute(path: '/profile', builder: (_, __) => const SizedBox(key: Key('profile'))),
+          GoRoute(
+              path: '/', builder: (_, __) => const SizedBox(key: Key('home'))),
+          GoRoute(
+              path: '/wisata',
+              builder: (_, __) => const SizedBox(key: Key('wisata'))),
+          GoRoute(
+              path: '/profile',
+              builder: (_, __) => const SizedBox(key: Key('profile'))),
         ],
       ),
     ],
@@ -40,7 +46,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Home'), findsOneWidget);
-      expect(find.text('Plants'), findsOneWidget);
+      expect(find.text('Wisata'), findsOneWidget);
       expect(find.text('Profile'), findsOneWidget);
     });
 
@@ -51,18 +57,18 @@ void main() {
       expect(find.byIcon(Icons.home), findsOneWidget);
     });
 
-    testWidgets('menekan Plants menavigasi ke halaman Plants', (tester) async {
+    testWidgets('menekan Wisata menavigasi ke halaman Wisata', (tester) async {
       await tester.pumpWidget(buildNavTestApp('/'));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('Plants'));
+      await tester.tap(find.text('Wisata'));
       await tester.pumpAndSettle();
 
-      // Halaman plants dirender
-      expect(find.byKey(const Key('plants')), findsOneWidget);
+      expect(find.byKey(const Key('wisata')), findsOneWidget);
     });
 
-    testWidgets('menekan Profile menavigasi ke halaman Profile', (tester) async {
+    testWidgets('menekan Profile menavigasi ke halaman Profile',
+        (tester) async {
       await tester.pumpWidget(buildNavTestApp('/'));
       await tester.pumpAndSettle();
 

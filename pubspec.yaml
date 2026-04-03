@@ -1,6 +1,6 @@
-name: pam_p6_2026_ifs18005
-description: "Menampilkan berbagai daftar tumbuhan."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+name: pam_p6_2026_ifs23021
+description: "Menampilkan berbagai destinasi wisata Pulau Samosir & Danau Toba."
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -22,11 +22,11 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/images/app_icon.png"
+  image_path: "assets/images/profile.png"
 
 launcher_name:
-  default: "Delcom Plants Flutter"
-  id: "Delcom Tumbuhan Flutter"
+  default: "Wisata Samosir"
+  id: "Wisata Samosir"
 
 flutter:
   uses-material-design: true

@@ -1,11 +1,11 @@
-// test/widget/screens/profile_screen_test.dart
+// test/screens/profile_screen_test.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pam_p6_2026_ifs18005/core/theme/app_theme.dart';
-import 'package:pam_p6_2026_ifs18005/core/theme/theme_notifier.dart';
-import 'package:pam_p6_2026_ifs18005/features/profile/profile_screen.dart';
+import 'package:pam_p6_2026_ifs23021/core/theme/app_theme.dart';
+import 'package:pam_p6_2026_ifs23021/core/theme/theme_notifier.dart';
+import 'package:pam_p6_2026_ifs23021/features/profile/profile_screen.dart';
 
 Widget buildProfileTest() {
   final notifier = ThemeNotifier(initial: ThemeMode.light);
@@ -45,19 +45,18 @@ void main() {
       expect(find.byType(CircleAvatar), findsOneWidget);
     });
 
-    testWidgets('menampilkan nama pengguna', (tester) async {
+    testWidgets('menampilkan nama mahasiswa', (tester) async {
       await tester.pumpWidget(buildProfileTest());
       await tester.pumpAndSettle();
 
-      // Nama default sesuai kode
-      expect(find.text('Abdullah Ubaid'), findsOneWidget);
+      expect(find.text('Nama Mahasiswa'), findsOneWidget);
     });
 
-    testWidgets('menampilkan username', (tester) async {
+    testWidgets('menampilkan NIM mahasiswa', (tester) async {
       await tester.pumpWidget(buildProfileTest());
       await tester.pumpAndSettle();
 
-      expect(find.text('ifs18005'), findsOneWidget);
+      expect(find.text('ifs23021'), findsOneWidget);
     });
 
     testWidgets('menampilkan kartu "Tentang Saya"', (tester) async {
