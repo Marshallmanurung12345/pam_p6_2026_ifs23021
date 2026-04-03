@@ -1,6 +1,7 @@
 // lib/core/theme/app_theme.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'app_colors.dart';
 import 'app_typography.dart';
 
@@ -32,6 +33,19 @@ class AppTheme {
       onSurfaceVariant: kLightOnSurfaceVariant,
       outline: kLightOutline,
     ),
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+    ),
+    cardTheme: CardThemeData(
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+      filled: true,
+    ),
   );
 
   static ThemeData get darkTheme => ThemeData(
@@ -58,6 +72,15 @@ class AppTheme {
       surfaceContainerHighest: kDarkSurfaceVariant,
       onSurfaceVariant: kDarkOnSurfaceVariant,
       outline: kDarkOutline,
+    ),
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+    ),
+    cardTheme: CardThemeData(
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     ),
   );
 }
